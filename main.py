@@ -1,21 +1,16 @@
 from typing import Optional
-
 from fastapi import FastAPI
 import instaloader
 
 app = FastAPI()
 
-
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
 
-
 @app.get("/ins/{item_id}")
 def ins_item(item_id: str, q: Optional[str] = None):
     L = instaloader.Instaloader()
-    if item_id=='':
-        item_id='likelook.by'
     username = item_id
     profile = instaloader.Profile.from_username(L.context, username)
     sss=''
