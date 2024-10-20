@@ -24,4 +24,4 @@ def ins_item(item_id: str, q: Optional[str] = None):
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Optional[str] = None):
     global sss
-    return {"item_id": item_id, "q": q,"sss",sss}
+    return {"item_id": item_id, "q": q,"sss":sss}
