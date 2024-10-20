@@ -24,4 +24,9 @@ def ins_item(item_id: str, q: Optional[str] = None):
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Optional[str] = None):
+    L = instaloader.Instaloader()
+    username = 'likelook.by'
+    profile = instaloader.Profile.from_username(L.context, username)
+    for post in profile.get_posts():
+        q=q+post.caption
     return {"item_id": item_id, "q": q}
