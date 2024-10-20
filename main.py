@@ -9,6 +9,19 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
+
+@app.get("/ins/{item_id}")
+async def root():
+    L = instaloader.Instaloader()
+    if item_id=='':
+        item_id='likelook.by'
+    username = item_id
+    profile = instaloader.Profile.from_username(L.context, username)
+    sss=''
+    for post in profile.get_posts():
+       sss= sss+post.caption
+    return {"message": sss}
+
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Optional[str] = None):
     return {"item_id": item_id, "q": q}
