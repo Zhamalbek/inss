@@ -11,7 +11,7 @@ async def root():
 
 
 @app.get("/ins/{item_id}")
-async def root():
+def ins_item(item_id: str, q: Optional[str] = None):
     L = instaloader.Instaloader()
     if item_id=='':
         item_id='likelook.by'
