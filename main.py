@@ -16,7 +16,7 @@ def ins_item(item_id: str, q: Optional[str] = None):
     return {"message": item_id}
 
 @app.get("/items/{item_id}/{q}")
-def read_item(item_id: int, q):
+def read_item(item_id: str, q: str):
     base_url = "https://api.aimlapi.com/v1"
     system_prompt = "You are a travel agent. Be descriptive and helpful."
     user_prompt = "Tell me about San Francisco"
