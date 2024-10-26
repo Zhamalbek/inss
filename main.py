@@ -37,6 +37,7 @@ def read_item(item_id: int, q):
     print("AI:", response)
     q=user_prompt+'--'+response
     return {"item_id": item_id, "q": q}
-@app.get("/{item_id}")
-def vvv_item(item_id: int, q: Optional[str] = None):
+
+@app.get("/{item_id}/{q}")
+def vvv_item(item_id: str, q: str):
     return {"item_id": item_id, "q": q}
