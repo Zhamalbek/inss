@@ -15,12 +15,12 @@ async def root():
 def ins_item(item_id: str, q: Optional[str] = None):
     return {"message": item_id}
 
-@app.get("/items/{item_id}")
+@app.get("/items/{item_id}/{q}")
 def read_item(item_id: int, q):
     base_url = "https://api.aimlapi.com/v1"
     system_prompt = "You are a travel agent. Be descriptive and helpful."
     user_prompt = "Tell me about San Francisco"
-    api2 = OpenAI(api_key=api_key, base_url=base_url)
+    api2 = OpenAI(api_key=item_id, base_url=base_url)
     completion = api2.chat.completions.create(
         model="mistralai/Mistral-7B-Instruct-v0.2",
         messages=[
